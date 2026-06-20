@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link rel = "stylesheet" href="style.css"></style>
+  </head>
+    
 <body>
-  <script src ="script.js"></script>
+  <button id="addBook" type="button">Add book</button>
+
+  <div id="form" style="display:none">
+
+    Title <input type="text" id="title" placeholder="Title of the book">
+    Author <input type="text" id="author" placeholder="Name of the author">
+    
+    <div class="checkbox-container">
+      <input type="checkbox" id="read">
+      <label for="read">I have read the book</label>
+    </div>
+    <button id="submit" type="button">Submit</button>
+  </div>
+
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Read</th>
+    </tr>
+  </thead>
+
+<script src = "script.js"></script>
 </body>
 </html>

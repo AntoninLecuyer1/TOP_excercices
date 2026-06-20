@@ -3,9 +3,21 @@ body {
   padding: 2rem;
 }
 
-.carte {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 1rem;
-  margin: 1rem 0;
+#addBook{
+  padding: auto;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
