@@ -30,7 +30,10 @@ function displayBooksOfLibrary(){
         tr.innerHTML = `
             <td>${book.title}</td>
             <td>${book.author}</td>
-            <td><input type="checkbox" class="read" ${book.read ? "checked" : ""}></td>
+            <td>${book.read 
+                ? '<span class="badge badge-read">Read</span>' 
+                : '<span class="badge badge-unread">Not read</span>'
+}           </td>
             <td><button class="delete" type="button" data-id="${book.id}">Delete</button></td>`;
 
         bookLine.appendChild(tr);  
@@ -76,9 +79,11 @@ bookLine.addEventListener("click", (event) =>{
         removeBookOfLibrary(event.target.dataset.id);
     }
 
-    if(event.target.classList.contains("read")){
+    if(event.target.classList.contains("badge")) {
         const id = event.target.closest("tr").dataset.id;
-        toggleReadStatus(id, event.target.checked);
+        const book = myLibrary.find(b => b.id === id);
+        toggleReadStatus(id, !book.read);
+        displayBooksOfLibrary();
     }
 });
 
