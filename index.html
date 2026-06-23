@@ -7,22 +7,23 @@
 <body>
   <button id="addBook" type="button">Add book</button>
 
-  <div id="form" style="display:none">
+  <dialog id="form">
+    <h2>Add a book</h2>
 
     Title <input type="text" id="title" placeholder="Title of the book">
     Author <input type="text" id="author" placeholder="Name of the author">
     
     <div class="checkbox-container">
-      <input type="checkbox" id="read">
+      <input type="checkbox" class="read" id="read">
       <label for="read">I have read the book</label>
     </div>
     <button id="submit" type="button">Submit</button>
-  </div>
+    <button id="cancel" type="button">Cancel</button>
+  </dialog>
 
   <table>  
     <thead>
       <tr>
-        <th scope="col" onclick="sortBy('id')">   ID     <i class="sort-icon" id="icon-id">↕</i></th>
         <th scope="col" onclick="sortBy('title')"> Title  <i class="sort-icon" id="icon-title">↕</i></th>
         <th scope="col" onclick="sortBy('author')">Author <i class="sort-icon" id="icon-author">↕</i></th>
         <th scope="col" onclick="sortBy('read')">  Read   <i class="sort-icon" id="icon-read">↕</i></th>
