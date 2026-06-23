@@ -1,4 +1,5 @@
-const myLibrary = [];
+let myLibrary = [];
+const bookLine = document.querySelector("tbody");
 
 function Book(id,title,author,read) {
   this.id = id;
@@ -15,15 +16,27 @@ function addBookToLibrary(title,author,read) {
 }
 
 function displayBooksOfLibrary(){
+
+    bookLine.innerHTML = "";
+
     for(let book of myLibrary){
-        console.log(`The ID : ${book.id}
-        The title : ${book.title}
-        The author : ${book.author}
-        Have you read this book : ${book.read ? "Yes I have" : "No, I haven't"}`);
-    }
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td>${book.id}</td>
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td><input type="checkbox" class="read" ${book.read ? "checked" : ""}></td>
+            <td><button class="delete" type="button" data-id="${book.id}">Delete</button></td>`;
+
+        bookLine.appendChild(tr);  
+    }  
 }
 
+function removeBookOfLibrary(id){
+    myLibrary = myLibrary.filter(b => b.id!==id);
+    displayBooksOfLibrary();
 
+}
 
 const button = document.querySelector("#addBook");
 const formulaire = document.querySelector("#form");
@@ -35,16 +48,20 @@ button.addEventListener("click", () =>{
 });
 
 submit.addEventListener("click", () =>{
-        const titleEntered = document.querySelector("#title").value;
-        const authorEntered = document.querySelector("#author").value;
-        const readEntered = document.querySelector("#read").checked;
+    const titleEntered = document.querySelector("#title").value;
+    const authorEntered = document.querySelector("#author").value;
+    const readEntered = document.querySelector("#read").checked;
 
-        if(!readEntered || !authorEntered || !readEntered) {
-           console.log("Missing an entry to the form");
-            return; 
-        }
-        addBookToLibrary(titleEntered,authorEntered,readEntered.value); 
-        displayBooksOfLibrary();
-})
+    if(!readEntered || !authorEntered || !titleEntered) {
+       console.log("Missing an entry to the form");
+        return; 
+    }
+    addBookToLibrary(titleEntered,authorEntered,readEntered); 
+    displayBooksOfLibrary();
+});
 
-displayBooksOfLibrary();
+bookLine.addEventListener("click", (event) =>{
+    if(event.target.classList.contains("delete")){
+        removeBookOfLibrary(event.target.dataset.id);
+    }
+});

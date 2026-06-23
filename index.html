@@ -19,14 +19,19 @@
     <button id="submit" type="button">Submit</button>
   </div>
 
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Title</th>
-      <th scope="col">Author</th>
-      <th scope="col">Read</th>
-    </tr>
-  </thead>
+  <table>  
+    <thead>
+      <tr>
+        <th scope="col" onclick="sortBy('id')">   ID     <i class="sort-icon" id="icon-id">↕</i></th>
+        <th scope="col" onclick="sortBy('title')"> Title  <i class="sort-icon" id="icon-title">↕</i></th>
+        <th scope="col" onclick="sortBy('author')">Author <i class="sort-icon" id="icon-author">↕</i></th>
+        <th scope="col" onclick="sortBy('read')">  Read   <i class="sort-icon" id="icon-read">↕</i></th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
 
 <script src = "script.js"></script>
 </body>
