@@ -15,7 +15,7 @@ A simple book library manager built with vanilla JavaScript.
 - Vanilla JavaScript (DOM manipulation, objects)
 
 ## Live Demo
-[View on GitHub Pages](#) ← on ajoutera le lien après
+[View demo](https://antoninlecuyer1.github.io/TOP_excercices/Library/)
 
 ## Part of
 [The Odin Project](https://www.theodinproject.com/) — Foundations curriculum
